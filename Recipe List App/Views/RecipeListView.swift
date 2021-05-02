@@ -14,7 +14,10 @@ struct RecipeListView: View {
     var body: some View {
         
         NavigationView {
-            List(model.recipes) { r in
+            ScrollView {
+                LazyVStack (alignment: .leading) {
+            
+            ForEach(model.recipes) { r in
                 
                 NavigationLink(
                     destination: RecipeDetailView(recipe:r),
@@ -29,14 +32,17 @@ struct RecipeListView: View {
                                 .clipped()
                                 .cornerRadius(5)
                             Text(r.name)
+                                .foregroundColor(.black)
                         }
-                        
+                        .padding(.leading)
                     })
                 
                 
                 
             }
+                }
             .navigationBarTitle("All Recipes")
+        }
         }
     }
 }
@@ -44,5 +50,6 @@ struct RecipeListView: View {
 struct RecipeListView_Previews: PreviewProvider {
     static var previews: some View {
         RecipeListView()
+            .environmentObject(RecipeModel())
     }
 }

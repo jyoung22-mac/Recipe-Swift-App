@@ -29,11 +29,12 @@ struct RecipeDetailView: View {
                     .bold()
                     .padding(.top, 20)
                     .font(.largeTitle)
-                    .padding(.leading)
+                    .font(Font.custom("Avenir Heavy", size: 24))
                 
                 // MARK: Serving Size Picker
                 VStack (alignment: .leading) {
                 Text("Select your serving size:")
+                    .font(Font.custom("Avenir", size: 15))
                 Picker("", selection: $selectedServingSize) {
                     Text("2").tag(2)
                     Text("4").tag(4)
@@ -41,6 +42,7 @@ struct RecipeDetailView: View {
                     Text("8").tag(8)
                     
                 }
+                .font(Font.custom("Avenir", size: 15))
                 .pickerStyle(SegmentedPickerStyle())
                 .frame(width:160)
                 }
@@ -70,6 +72,7 @@ struct RecipeDetailView: View {
                         
                         Text(String(index+1) + ". " + recipe.directions[index])
                             .padding(.bottom, 5)
+                            .font(Font.custom("Avenir", size: 15))
                     }
                 }
                 .padding(.horizontal)
